@@ -4,9 +4,8 @@ Pacotes necessários:
         pip install scrapy
     pandas
         Usada para abrir e gravar os dados no excel
-        *Necessário usar o Openpyxl em conjunto*
+        Necessário usar o Openpyxl em conjunto
         pip install pandas
         pip install openpyxl
 
 #Em Construção#
-*--------------*
