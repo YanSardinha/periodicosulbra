@@ -9,7 +9,6 @@ summary_list = []
 tags_list = []
 complete_version_list = []
 
-
 class ArtigosSpider(scrapy.Spider):
     name = 'artigos'
     start_urls = ['http://www.periodicos.ulbra.br/index.php/acta/issue/archive?issuesPage=1#issues']
