@@ -18,7 +18,7 @@ class ArtigosSpider(scrapy.Spider):
         #Nesta etapa o programa irá entrará em cada um dos artigos e irá repassar para a próxima função
         for link in response.xpath(".//div[@style='float: left; width: 100%;']").css('a::attr(href)'):
             yield response.follow(link.get(), callback=self.parse_volume_artigos)
-        print('PROXIMA PAGINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+            
         #Nessa etapa o programa pegar os site onde estarãos as edições
         for i in range(2, 6):
             proxima_pagina = 'http://www.periodicos.ulbra.br/index.php/acta/issue/archive?issuesPage={}'.format(i)
