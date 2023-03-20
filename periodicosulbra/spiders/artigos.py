@@ -1,12 +1,15 @@
 import scrapy
 import pandas as pd
 import json
+import re
+
 
 class ArtigoItem(scrapy.Item):
     title = scrapy.Field()
     authors = scrapy.Field()
     summary = scrapy.Field()
     tags = scrapy.Field()
+    date = scrapy.Field()
     complete_version = scrapy.Field()
 
 class ArtigosSpider(scrapy.Spider):
@@ -39,6 +42,9 @@ class ArtigosSpider(scrapy.Spider):
         artigo_item['authors'] = i.xpath(".//div[@id='authorString']//text()").get()
         artigo_item['summary'] = i.xpath(".//div[@id='articleAbstract']/div//text()").getall()
         artigo_item['tags'] = i.xpath(".//div[@id='articleSubject']/div//text()").get()
+        date = i.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/a[2]//text()").get()
+        artigo_item['date']= re.findall(r"\d{4}", date)[0]
+
         artigo_item['complete_version'] = i.xpath(".//div[@id='articleFullText']/a").css('a::attr(href)').get()
 
         self.items.append(artigo_item)
