@@ -3,7 +3,7 @@ import json
 import requests
 
 # Configuração da chave de acesso à API do GPT
-openai.api_key = "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"
+openai.api_key = "CHAVE DA API AQUI"
 
 # Definindo os dados que serão inseridos na API
 with open("artigos.json", "r") as f:
